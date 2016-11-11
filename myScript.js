@@ -2,8 +2,14 @@
 // Gets called when the user click on the button
 function event1() {
     var userInput = parseInt(document.getElementById("Text1").value);
-    var result = primeCountingFunction(userInput, "segmentedSieve");
-    document.getElementById("txtresult").value = result;
+	
+	if (userInput <= 4294967295){
+		var result = primeCountingFunction(userInput, "segmentedSieve");
+		document.getElementById("txtresult").value = result;
+	}
+	else{
+		document.getElementById("txtresult").value = "This number is too high."
+	}
 }
 
 // Return the list of all prime numbers below n
@@ -11,10 +17,11 @@ function sieveOfEratosthenes(n){
 	
 	// Initialisation of our list.
 	// isPrime[a] is true if we think at the current time that a is prime.
-	var isPrime = [false,false];
-	for (i = 2; i < n; i++) { 
-		isPrime.push(true);
-	}
+	var isPrime = Array(n).fill(true);
+	
+	// 0 and 1 aren't prime numbers.
+	isPrime[0] = false;
+	isPrime[1] = false;
 	
 	// We can put all the prime numbers that we find in a list.
 	var primeNumbers = [];
@@ -75,6 +82,7 @@ function primeCountingFunction(n, algorithme){
 // A more memory friendly version of the sieve_of_eratosthenes
 // The space complexity is now O(sqrt(n)) instead of O(n)
 // The list "isPrime" is now splitted into smaller lists of size sqrt(n)
+// 
 function segmentedSieve(n){
 	
 	// Setting up the segmentation
