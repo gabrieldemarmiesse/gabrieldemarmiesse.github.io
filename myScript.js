@@ -62,9 +62,9 @@ function sieveOfEratosthenes(n){
 
 // Returns the number of primes before n using either 
 // sieveOfEratosthenes or segmentedSieve
-function primeCountingFunction(n, algorithme){
+function primeCountingFunction(n, algorithm){
 	
-	switch (algorithme){
+	switch (algorithm){
 		case "sieveOfEratosthenes":
 			return sieveOfEratosthenes(n).length;
 			break;
