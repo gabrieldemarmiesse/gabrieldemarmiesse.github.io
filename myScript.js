@@ -85,6 +85,11 @@ function primeCountingFunction(n, algorithm){
 // 
 function segmentedSieve(n){
 	
+	// Checking for limit values:
+	if (n <= 2){
+		return 0;
+	}
+	
 	// Setting up the segmentation
 	var isPrimeSize = Math.ceil(Math.sqrt(n));
 	var isPrimeNbPieces = Math.ceil(n/isPrimeSize);
