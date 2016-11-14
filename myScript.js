@@ -27,7 +27,7 @@ function sieveOfEratosthenes(n){
 	var primeNumbers = [];
 	
 	// We loop until sqrt(n) because of our inner loop which begins at i*i.
-	for (var i = 2; i <= Math.sqrt(n); i++) { 
+	for (var i = 2; i < Math.sqrt(n); i++) { 
 		if(isPrime[i] === true){
 			
 			// We know that now i is a prime number.
